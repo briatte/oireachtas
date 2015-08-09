@@ -146,7 +146,7 @@ for (jj in unique(b$chamber)) {
 
     if (plot) {
 
-      save_plot(n, paste0("plots/net_ie_", yrs[ paste(jj, ii) ]),
+      save_plot(n, paste0("plots/net_ie_", jj, yrs[ paste(jj, ii) ]),
                 i = colors[ sp[ n %e% "source", "party" ] ],
                 j = colors[ sp[ n %e% "target", "party" ] ],
                 mode, colors)
@@ -157,7 +157,7 @@ for (jj in unique(b$chamber)) {
     # SAVE OBJECTS
     # ==========================================================================
 
-    assign(paste0("net_ie_",  jj, substr(yrs[ paste(jj, ii) ], 1, 4)), n)
+    assign(paste0("net_ie_",   jj, substr(yrs[ paste(jj, ii) ], 1, 4)), n)
     assign(paste0("edges_ie_", jj, substr(yrs[ paste(jj, ii) ], 1, 4)), edges)
     assign(paste0("bills_ie_", jj, substr(yrs[ paste(jj, ii) ], 1, 4)), data)
 
