@@ -22,6 +22,7 @@ dir.create("raw/bill-lists" , showWarnings = FALSE)
 dir.create("raw/bill-pages" , showWarnings = FALSE)
 dir.create("raw/mp-lists"   , showWarnings = FALSE)
 dir.create("raw/mp-pages"   , showWarnings = FALSE)
+dir.create("raw/committees" , showWarnings = FALSE)
 
 # parameters
 
@@ -45,9 +46,14 @@ meta = c(
 
 source("data.r")  # scrape bills and sponsors
 source("build.r") # assemble the networks
+
+# do not add committee co-memberships: committees are available only for the
+# current house, and there are too few cosponsorship ties to create weighted
+# co-membership ties from that
+
 # source("comm.r")  # add committee co-membership
 
-save(list = ls(pattern = "^(co)?(net|edges|bills)_ie_(ca|se)\\d{4}$"),
+save(list = ls(pattern = "^(co)?(net|edges|bills)_ie_(da|se)\\d{4}$"),
      file = "data/net_ie.rda")
 
 # have a nice day
