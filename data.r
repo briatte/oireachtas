@@ -341,7 +341,7 @@ s$name[ s$uid == 107 ] = "John Browne-1" # matched in sponsors lists
 # s$name[ s$uid == 108 ] = "John Browne-2" # matched in sponsors lists
 
 a = strsplit(b$authors, ";") %>% unlist
-stopifnot(a %in% s$name)
+stopifnot(a[ nchar(a) > 2 ] %in% s$name)
 
 s$legislature = str_extract(s$mandate, "\\d{2}") %>% as.integer
 s$chamber = ifelse(grepl("Dáil", s$mandate), "da", "se")

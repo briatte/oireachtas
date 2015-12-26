@@ -18,7 +18,7 @@ for (jj in unique(b$chamber)) {
     cat(":", nrow(data), "cosponsored documents, ")
 
     aa = strsplit(data$authors, ";") %>% unlist
-    m = aa[ !aa %in% sp$name ]
+    m = aa[ nchar(aa) > 2 & !aa %in% sp$name ]
     if (length(m) > 0) {
 
       cat("appending", length(m), "sponsor profiles, ")
